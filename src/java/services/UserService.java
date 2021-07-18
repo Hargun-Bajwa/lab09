@@ -23,7 +23,8 @@ public class UserService {
     public void insert(String email, Boolean active, String firstName, String lastName, String password,int roleId) throws Exception {
         User user = new User(email, active , firstName, lastName, password);
         // getting connection from roleDB to set role for user
-        // tried differeent other things but this was only way it works.
+        //   tried differeent other things but this was only way it works.
+        // we used the direct RoleId in the JDBC lab but that did not go well with JPI so I did the things more thoroughly, created the role object and set taht role in user record.
         RoleDB roleDB = new RoleDB();
         Role role =  roleDB.get(roleId);
         user.setRole(role);
@@ -37,6 +38,7 @@ public class UserService {
         User user = new User(email, active, firstName, lastName, password);
         // getting connection from roleDB to set role for user
         // tried using the same code as JDBC lab but this was only way it works.
+        // we used the direct RoleId in the JDBC lab but that did not go well with JPI so I did the things more thoroughly, created the role object and set taht role in user record.
          RoleDB roleDB = new RoleDB();
         Role role =  roleDB.get(roleId);
         user.setRole(role);

@@ -3,18 +3,20 @@ package dataaccess;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NamedQueries;
 import models.Role;
 import models.User;
 
 
 public class UserDB {
-    // copy-paste from Demo09JPA(just changed note with user)
-       
+    // copy-paste most of code from Demo09JPA(just changed note with user)
     public List<User> getAll() throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         
         try {
-            User users = em.find(User.class, "User.findAll");
+            // went through slides and get this code from slide 22 finally getAll is working
+            // used findAll createNamedQuery in model.User to get all the users 
+            List<User> users = em.createNamedQuery("User.findAll", User.class).getResultList();
             return (List<User>) users;
         } finally {
             em.close();

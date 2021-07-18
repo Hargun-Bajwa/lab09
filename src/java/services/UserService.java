@@ -22,6 +22,8 @@ public class UserService {
     
     public void insert(String email, Boolean active, String firstName, String lastName, String password,int roleId) throws Exception {
         User user = new User(email, active , firstName, lastName, password);
+        // getting connection from roleDB to set role for user
+        // tried differeent other things but this was only way it works.
         RoleDB roleDB = new RoleDB();
         Role role =  roleDB.get(roleId);
         user.setRole(role);
@@ -34,7 +36,7 @@ public class UserService {
         UserDB userdb = new UserDB();
         User user = new User(email, active, firstName, lastName, password);
         // getting connection from roleDB to set role for user
-        // tried differeent other things but this was only way it works.
+        // tried using the same code as JDBC lab but this was only way it works.
          RoleDB roleDB = new RoleDB();
         Role role =  roleDB.get(roleId);
         user.setRole(role);

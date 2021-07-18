@@ -9,7 +9,7 @@ import models.User;
 
 public class UserDB {
     // copy-paste from Demo09JPA(just changed note with user)
-    
+       
     public List<User> getAll() throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         

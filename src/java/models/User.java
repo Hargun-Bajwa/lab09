@@ -17,7 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-
+// models created using entity classes from database
 /**
  *
  * @author 839217

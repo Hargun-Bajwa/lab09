@@ -29,7 +29,7 @@
                     <td>${user.email}</td>
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
-                    <td>${user.roleName}</td>
+                    <td>${user.role.roleName}</td>
                     <td><a href="user?action=edit&amp;email=${user.email}">Edit</a></td>
                     <td><a href="user?action=delete&amp;email=${user.email}" >Delete</a></td>
                 </tr>

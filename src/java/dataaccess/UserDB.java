@@ -8,18 +8,18 @@ import models.User;
 
 
 public class UserDB {
+    // copy-paste from Demo09JPA(just changed note with user)
     
     public List<User> getAll() throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         
         try {
-            List<User> users = em.createNamedQuery("User.findAll", User.class).getResultList();
-            return users;
+            User users = em.find(User.class, "User.findAll");
+            return (List<User>) users;
         } finally {
             em.close();
         }
     }
-
     
     public User get(String email) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
